@@ -1,7 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
-
 from rest_framework import viewsets, permissions, filters, status
 from .models import Task
 from .serializers import TaskSerializer, LoginSerializers, UserSerializer
@@ -11,15 +9,17 @@ from drf_yasg.utils import swagger_auto_schema
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from .pagination import TaskPagination
 # from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
+
+# Create your views here.
 
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     permission_classes = [IsAuthenticated]
-    # filter_backends = [filters.SearchFilter, DjangoFilterBackend]
-    # filterset_fields = ['completed', 'priority', 'due_date']
-    # search_fields = ['title', 'description']
+    pagination_class = TaskPagination
+    
 
     def get_queryset(self):
         return Task.objects.filter(owner=self.request.user)

@@ -13,6 +13,11 @@ class TaskSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Title must not be empty.")
         return value
     
+    def validate_due_date(self, value):
+        if not value.strip():
+            raise serializers.ValidationError("Invalid date format.")
+        return value
+    
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

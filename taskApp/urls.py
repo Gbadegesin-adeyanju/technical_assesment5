@@ -9,5 +9,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('tasks/<int:pk>/complete/', MarkTaskCompletedView.as_view()),
     path('login/', LoginView.as_view(), name='login'),
-    path('signup/', LoginView.as_view(), name='signup'),
+    path('signup/', UserView.as_view(), name='signup'),
 ]
