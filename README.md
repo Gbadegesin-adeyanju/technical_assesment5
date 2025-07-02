@@ -20,5 +20,5 @@ python manage.py migrate
 python manage.py runserver
 
 
-swagger link:
+swagger link: <br>
 swagger doc: 
