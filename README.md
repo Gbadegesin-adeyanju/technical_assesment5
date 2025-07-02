@@ -20,5 +20,5 @@ python manage.py migrate
 python manage.py runserver
 
 
-swagger link: <br>
-swagger doc: 
+swagger link: https://technical-assesment5.onrender.com/swagger/ <br>
+swagger doc: https://technical-assesment5.onrender.com/redoc/
